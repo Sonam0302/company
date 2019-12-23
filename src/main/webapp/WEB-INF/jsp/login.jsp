@@ -1,18 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
-<!DOCTYPE html>
-<html>
-<head>
-<title></title>
-<link rel="stylesheet" type="text/css" href="/resources/css/login.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="/resource/js/validation/fieldShow.js"></script>
-</head>
+<%@include file="/resources/header/login_head.jsp"%>
 <body>
 
 	<div class="login-page">
@@ -52,5 +38,5 @@
 		</div>
 	</div>
 </body>
-<script src="/resources/js/validation/loginValidation.js"></script>
+
 </html>

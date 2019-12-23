@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title></title>
-<link rel="stylesheet" type="text/css" href="/resources/css/login.css">
-<link rel="stylesheet" type="text/css" href="/resources/css/fonts.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-</head>
+<%@include file="/resources/header/registration_head.jsp"%>
 <body>
 	<div class="login-page">
 		<div class="form">
