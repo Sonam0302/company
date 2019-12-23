@@ -41,26 +41,21 @@ public class EmployeeController {
 		String login_as = (String) session.getAttribute("login_as");
 
 		if ("employee".equals(login_as) && (email != null)) {
-			int sid = (Integer) session.getAttribute("id");
-			List<Employee> user = empservice.getEmployeeByEmail(email);
-			Employee us = empservice.getEmployeeById(sid);
-			int com_id = us.getCom_id();
-			Company com = comservice.getCompanyById(com_id);
+			// int sid = (Integer) session.getAttribute("id");
+			// List<Employee> user = empservice.getEmployeeByEmail(email);
+			// Employee us = empservice.getEmployeeById(sid);
+			// int com_id = us.getCom_id();
+			// Company com = comservice.getCompanyById(com_id);
 			ModelAndView page = new ModelAndView();
 			page.setViewName("employee_intro");
-
-			if (com.getImage() != null) {
-				byte[] encoded = Base64.encodeBase64(com.getImage());
-				String encodedString = new String(encoded);
-				page.getModelMap().put("image", encodedString);
-			} else {
-				String image = com.getPicture_url();
-				page.addObject("image1", image);
-			}
-
-			page.addObject("id", sid);
-			page.addObject("user", user);
-			return page;
+			/*
+			 * if (com.getImage() != null) { byte[] encoded =
+			 * Base64.encodeBase64(com.getImage()); String encodedString = new
+			 * String(encoded); page.getModelMap().put("image", encodedString); } else {
+			 * String image = com.getPicture_url(); page.addObject("image1", image); }
+			 * 
+			 * page.addObject("id", sid); page.addObject("user", user);
+			 */ return page;
 
 		} else if ("company".equals(login_as) && (email != null)) {
 			return new ModelAndView("redirect:/company/introduction");
