@@ -169,20 +169,9 @@ public class CompanyController {
 		else if ("company".equals(login_as) && (email != null)) {
 			int sid = (Integer) session.getAttribute("id");
 
-			Company com = comservice.getCompanyById(sid);
-			String name = com.getCom_name();
+			// Company com = comservice.getCompanyById(sid);
 			ModelAndView page = new ModelAndView();
 			page.setViewName("employee_view");
-			if (com.getImage() != null) {
-				byte[] encoded = Base64.encodeBase64(com.getImage());
-				String encodedString = new String(encoded);
-				page.getModelMap().put("image", encodedString);
-			} else {
-				String image = com.getPicture_url();
-				page.addObject("image1", image);
-			}
-			page.addObject("id", sid);
-			page.addObject("name", name);
 			return page;
 
 		} else {
