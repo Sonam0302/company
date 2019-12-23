@@ -182,10 +182,10 @@ public class GoogleController {
 	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
-	public ModelAndView showRegistration(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		String email = (String) session.getAttribute("email");
-		String login = (String) session.getAttribute("login_as");
+	public ModelAndView showRegistration() {
+		// HttpSession session = request.getSession();
+		// String email = (String) session.getAttribute("email");
+		// String login = (String) session.getAttribute("login_as");
 		// System.out.println(login);
 		ModelAndView page = new ModelAndView();
 		page.setViewName("signup");
