@@ -49,4 +49,12 @@ public class CompanyServiceImpl implements CompanyService {
 		return comdao.getCompanyByEmail(email);
 	}
 
+	public List<Company> getCompanyByToken(String token) {
+		return comdao.getCompanyByToken(token);
+	}
+
+	public List<Company> getCompany() {
+
+		return comdao.getCompany();
+	}
 }

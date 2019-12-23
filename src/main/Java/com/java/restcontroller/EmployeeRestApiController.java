@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.java.model.Employee;
-import com.java.service.EmployeeRestApiService;
+import com.java.service.EmployeeService;
 
 @RestController
 public class EmployeeRestApiController {
 
 	@Autowired
-	EmployeeRestApiService emprestservice;
+	EmployeeService emprestservice;
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
@@ -108,4 +108,9 @@ public class EmployeeRestApiController {
 		emprestservice.updateEmployee(em);
 	}
 
+	@GetMapping("/employee/{com_id}")
+	public List<Employee> getEmployeByCompanyId(@PathVariable Integer com_id) {
+		List<Employee> emp = emprestservice.employeeByComId(com_id);
+		return emp;
+	}
 }

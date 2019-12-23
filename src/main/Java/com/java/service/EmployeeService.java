@@ -26,4 +26,9 @@ public interface EmployeeService {
 
 	public Long countEmployeesBySearch(int id, String search);
 
+	// for rest api
+	public List<Employee> allEmployee();
+
+	public List<Employee> getEmployeeByToken(String token);
+
 }

@@ -25,4 +25,10 @@ public interface EmployeeDao {
 	public List<Employee> getEmployeesByPage(int id, int pageid, int total, String search); // for pagination and search
 
 	public Long countEmployeesBySearch(int id, String search);
+
+	// for rest api
+
+	public List<Employee> allEmployee();
+
+	public List<Employee> getEmployeeByToken(String token);
 }

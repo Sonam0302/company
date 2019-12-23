@@ -133,4 +133,28 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		return count;
 	}
 
+	// for rest api
+
+	public List<Employee> allEmployee() {
+		Session session = sessionFactory.getCurrentSession();
+		Transaction t = session.beginTransaction();
+
+		List<Employee> allUser = session.createQuery("from Employee").list();
+		t.commit();
+		return allUser;
+	}
+
+	public List<Employee> getEmployeeByToken(String token) {
+		Session session = sessionFactory.getCurrentSession();
+		Transaction t = session.beginTransaction();
+		String SQL_QUERY = "  from User  where employeeRandom_key=:token";
+		Query query = session.createQuery(SQL_QUERY);
+		query.setParameter("token", token);
+		List<Employee> user = query.list();
+		System.out.println("Person loaded successfully, Person details=" + user);
+
+		t.commit();
+		return user;
+	}
+
 }

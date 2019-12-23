@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.java.model.Company;
-import com.java.service.CompanyRestApiService;
+import com.java.service.CompanyService;
 
 @RestController
 public class CompanyRestApiController {
 	@Autowired
-	CompanyRestApiService comrestservice;
+	CompanyService comrestservice;
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
