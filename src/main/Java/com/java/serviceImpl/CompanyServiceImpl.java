@@ -54,6 +54,7 @@ public class CompanyServiceImpl implements CompanyService {
 	}
 
 	public List<Company> getCompany() {
+
 		return comdao.getCompany();
 	}
 }
