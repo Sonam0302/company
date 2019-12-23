@@ -22,7 +22,7 @@ public interface CompanyService {
 
 	public List<Company> getCompanyByEmail(String email);
 
-	// for rest Api
+	// For Company Rest Api
 
 	public List<Company> getCompanyByToken(String token);
 
