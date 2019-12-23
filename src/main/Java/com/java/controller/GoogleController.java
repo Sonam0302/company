@@ -210,7 +210,7 @@ public class GoogleController {
 		SimpleMailMessage msg = new SimpleMailMessage();
 		msg.setTo(com_email);
 		msg.setSubject("Confirmation Mail");
-		msg.setText("Dear " + com_name + " you are successfully registered your \n your passowrd=" + com_pass
+		msg.setText("Dear " + com_name + " you are successfully registered  \n your passowrd=" + com_pass
 				+ " \n please change your password after first login");
 
 		javaMailSender.send(msg);
