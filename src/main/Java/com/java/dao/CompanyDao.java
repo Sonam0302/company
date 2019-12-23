@@ -22,4 +22,8 @@ public interface CompanyDao {
 
 	public List<Company> getCompanyByEmail(String email);
 
+	public List<Company> getCompanyByToken(String token);
+
+	public List<Company> getCompany();
+
 }

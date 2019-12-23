@@ -57,4 +57,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return empdao.countEmployeesBySearch(id, search);
 	}
 
+	public List<Employee> allEmployee() {
+		return empdao.allEmployee();
+	}
+
+	public List<Employee> getEmployeeByToken(String token) {
+		return empdao.getEmployeeByToken(token);
+	}
 }

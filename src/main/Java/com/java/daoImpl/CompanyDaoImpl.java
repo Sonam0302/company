@@ -123,4 +123,24 @@ public class CompanyDaoImpl implements CompanyDao {
 		return comp;
 	}
 
+	public List<Company> getCompanyByToken(String token) {
+		Session session = sessionFactory.getCurrentSession();
+		Transaction t = session.beginTransaction();
+		String SQL_QUERY = "  from Company  where random_key=:token";
+		Query query = session.createQuery(SQL_QUERY);
+		query.setParameter("token", token);
+		List<Company> com = query.list();
+		t.commit();
+		System.out.println("Person loaded successfully, Person details=" + com);
+		return com;
+	}
+
+	public List<Company> getCompany() {
+		Session session = sessionFactory.getCurrentSession();
+		Transaction t = session.beginTransaction();
+		List<Company> com = session.createQuery("from Company").list();
+		t.commit();
+		return com;
+	}
+
 }

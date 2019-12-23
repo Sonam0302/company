@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.java.model.Employee;
-import com.java.service.EmployeeRestApiService;
+import com.java.service.EmployeeService;
 
 @RestController
 public class EmployeeRestApiController {
 
 	@Autowired
-	EmployeeRestApiService emprestservice;
+	EmployeeService emprestservice;
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
