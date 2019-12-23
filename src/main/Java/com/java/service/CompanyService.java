@@ -22,6 +22,8 @@ public interface CompanyService {
 
 	public List<Company> getCompanyByEmail(String email);
 
+	// for rest Api
+
 	public List<Company> getCompanyByToken(String token);
 
 	public List<Company> getCompany();
