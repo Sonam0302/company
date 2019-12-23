@@ -108,4 +108,9 @@ public class EmployeeRestApiController {
 		emprestservice.updateEmployee(em);
 	}
 
+	@GetMapping("/employee/{com_id}")
+	public List<Employee> getEmployeByCompanyId(@PathVariable Integer com_id) {
+		List<Employee> emp = emprestservice.employeeByComId(com_id);
+		return emp;
+	}
 }
