@@ -99,7 +99,7 @@ public class CompanyController {
 	public Map<String, String> getCompanyInfo(HttpServletRequest request) throws ParseException {
 		HttpSession session = request.getSession();
 		int sid = (Integer) session.getAttribute("id");
-		String email = (String) session.getAttribute("email");
+		// String email = (String) session.getAttribute("email");
 		Company comp = comservice.getCompanyById(sid);
 		// List<Company> com = comservice.getCompanyByEmail(email);
 		int com_id = comp.getId();
@@ -138,8 +138,8 @@ public class CompanyController {
 		String login_as = (String) session.getAttribute("login_as");
 
 		if ("company".equals(login_as) && (email != null)) {
-			int sid = (Integer) session.getAttribute("id");
-			Company com = comservice.getCompanyById(sid);
+			// int sid = (Integer) session.getAttribute("id");
+			// Company com = comservice.getCompanyById(sid);
 			ModelAndView page = new ModelAndView();
 			page.setViewName("company_intro");
 			return page;
@@ -167,7 +167,7 @@ public class CompanyController {
 		}
 
 		else if ("company".equals(login_as) && (email != null)) {
-			int sid = (Integer) session.getAttribute("id");
+			// int sid = (Integer) session.getAttribute("id");
 
 			// Company com = comservice.getCompanyById(sid);
 			ModelAndView page = new ModelAndView();
@@ -329,8 +329,20 @@ public class CompanyController {
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public ModelAndView edditingUser(@ModelAttribute("user") Employee emp, HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		empservice.updateEmployee(emp);
-		return new ModelAndView("redirect:/company/employee_view");
+		String email = (String) session.getAttribute("email");
+		String login_as = (String) session.getAttribute("login_as");
+
+		if ("company".equals(login_as) && (email != null)) {
+			empservice.updateEmployee(emp);
+			return new ModelAndView("redirect:/company/employee_view");
+		} else if ("employee".equals(login_as) && (email != null)) {
+			return new ModelAndView("redirect:/company/emp_introduction");
+		} else {
+			ModelAndView page = new ModelAndView();
+			page.setViewName("logout");
+
+			return page;
+		}
 	}
 
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
@@ -394,8 +406,8 @@ public class CompanyController {
 		}
 
 		else if ("company".equals(login_as) && (email != null)) {
-			int sid = (Integer) session.getAttribute("id");
-			Company com = comservice.getCompanyById(sid);
+			// int sid = (Integer) session.getAttribute("id");
+			// Company com = comservice.getCompanyById(sid);
 			ModelAndView page = new ModelAndView();
 			page.setViewName("add_employee");
 			m.addAttribute("command", new Employee());
@@ -441,8 +453,8 @@ public class CompanyController {
 			return new ModelAndView("redirect:/company/emp_introduction");
 
 		} else if ("company".equals(login) && (email != null)) {
-			int sid = (Integer) session.getAttribute("id");
-			Company com = comservice.getCompanyById(sid);
+			// int sid = (Integer) session.getAttribute("id");
+			// Company com = comservice.getCompanyById(sid);
 
 			ModelAndView page = new ModelAndView();
 			page.setViewName("LineChart");
