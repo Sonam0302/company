@@ -1,0 +1,160 @@
+
+	<style>
+		body{  
+		background:#C0C0C0; 
+		margin:0px;
+		}  
+        .header{
+
+                padding: 2px;
+                padding-left:135px;
+                background-color:#455e64;
+                text-align: left;
+               }
+          .header h2,.name{
+          	color: black; 
+          	font-weight: bold;
+          	display: inline-block;
+          	}
+              /*===============[Nav CSS]==========*/
+         /*     .nav{
+              	background-color:#243238;
+              	padding: 5px;
+              	}
+           */  
+              .header li{
+              list-style: none;
+              display: inline-block;
+             /* padding: 5px;           */
+               }
+           .header a{
+           	color: #fff;
+           }
+           
+          .header ul li a:hover{
+            text-decoration: none;
+            color: #7fffd4;
+           } 
+              
+.sidebar {
+          /* padding-top: 5%;    */ 
+           height: 100%;
+          /* width: 160px;     */
+           position: fixed;
+           z-index: 1;
+           top: 0;
+           left: 0;
+           background-color:#455e64;
+          /* background-color: #111;  */
+           overflow-x: hidden;
+  			 font-size:18px;
+  			  font-weight:bold;
+}
+.avatar{
+           
+           height: 100px;
+           width: 160px;
+      /*     border-radius: 8%;            */
+          
+ }
+.sidebar a {
+   
+  margin-top: 20%; 
+  text-decoration: none;
+  font-weight:bold;
+  font-size: 18px;
+  color: #111;
+  display: block;
+}
+.dropdown-btn {
+  margin-top: 20%;
+  text-decoration: none;
+  font-weight:bold;
+  font-size: 18px;
+  color: #111;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  /*
+   padding: 6px 8px 6px 16px;
+  text-decoration: none;
+ font-weight:bold;
+  font-size: 20px;
+  color: #111;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+*/}
+
+.sidebar a:hover ,.dropdown-btn:hover {
+  color: #f1f1f1;
+}
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: green;
+  color: white;
+}
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 5px;
+  
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 5px;
+}
+
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+.main li{
+              list-style: none;
+              display: inline-block;
+             /* padding: 5px;           */
+             font-size:20px;
+             font-style:Sans-serif;
+               }
+.main li .btn {
+  border: 1px solid black;
+  background-color: #C0C0C0; 
+  color: black;
+  padding:5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+}    
+.main li .default {
+  border-color: black;
+  color: black;
+}
+
+.main li .default:hover {
+  background: #e7e7e7;
+}           
+               
+.main table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.main td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+
+</style>
