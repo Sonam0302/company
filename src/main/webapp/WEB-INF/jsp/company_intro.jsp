@@ -18,6 +18,7 @@
 	</div>
 </div>
 <!-- sidebar -->
+<script src="/resources/js/random_key.js"></script>
 <script src="/resources/js/company_intro.js"></script>
 <%@include file="/resources/side/admin_sidebar.jsp"%>
 </body>
