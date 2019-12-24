@@ -76,7 +76,7 @@ public class PDFGenerator {
 			Paragraph para2 = new Paragraph("Employee List", font2);
 			para2.setAlignment(Element.ALIGN_CENTER);
 
-			document.add(para);
+			document.add(para2);
 			document.add(Chunk.NEWLINE);
 
 			float[] pointColumnWidths = { 25F, 75F, 75F, 75F, 75F, 75F, 75F, 75F };

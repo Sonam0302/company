@@ -5,9 +5,9 @@
 	</div>
 </div>
 
-<script src="/resources/js/highcharts.js"></script>
-<script src="/resources/js/jquery.js"></script>
-<script src="/resources/js/index.js"></script>
+<script src="/resources/js/highchart/highcharts.js"></script>
+<script src="/resources/js/highchart/jquery.js"></script>
+<script src="/resources/js/highchart/index.js"></script>
 <script src="/resources/js/company_intro.js"></script>
 <%@include file="/resources/side/admin_sidebar.jsp"%>
 </body>
