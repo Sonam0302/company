@@ -1,10 +1,12 @@
 package com.java.controller;
 
+import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -12,6 +14,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.tomcat.util.codec.binary.Base64;
@@ -41,6 +44,8 @@ import com.java.model.Employee;
 import com.java.service.CompanyService;
 import com.java.service.EmployeeService;
 import com.java.util.PDFGenerator;
+import com.opencsv.exceptions.CsvDataTypeMismatchException;
+import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 
 @Controller
 @RequestMapping(value = "/company")
@@ -604,5 +609,51 @@ public class CompanyController {
 		String msg = "You are Successfully Logout";
 		page.addObject("msg", msg);
 		return page;
+	}
+
+	@GetMapping("/javaFile")
+	public void writingInCsv(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
+		HttpSession session = request.getSession();
+		String email = (String) session.getAttribute("email");
+		int sid = (Integer) session.getAttribute("id");
+		try {
+
+			List<Employee> records = empservice.employeeByComId(sid);
+
+			String filename = "employee.csv";
+			response.setContentType("text/csv");
+			response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + filename + "\"");
+	
+			BufferedWriter writer = new BufferedWriter(response.getWriter());
+
+			// write header record
+			writer.write("ID,Name,Email,Contact");
+			writer.newLine();
+			List<List<String>> list = new ArrayList<>();
+			// write all records
+			for (Employee record : records) {
+				List<String> empList = new ArrayList<>();
+				String Id = String.valueOf(record.getId());
+				String name = record.getName();
+				String empEmail = record.getEmail();
+				String contact = record.getContact_no();
+				empList.add(Id);
+				empList.add(name);
+				empList.add(empEmail);
+				empList.add(contact);
+				list.add(empList);
+
+			}
+			for (List<String> record : list) {
+				writer.write(String.join(",", record));
+				writer.newLine();
+			}
+	
+			writer.close();
+
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
 	}
 }

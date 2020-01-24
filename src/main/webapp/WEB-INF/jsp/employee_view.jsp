@@ -5,6 +5,8 @@
       		<div class="main">	
       		<ul>
       		    <li>Employee</li>
+      		   
+      		      <li><button class="btn default"><a href="javaFile">Download List in .csv</a></button></li>
       		    <li style="float: right"><button class="btn default" onclick="myFunction()">Download List</button></li>
       	
      </ul>
